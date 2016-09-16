@@ -1,0 +1,57 @@
+// V 1.1.1
+New features:
+	-each gizmo now has an associated object collection and object layer mask. Objects that are masked will not be
+	manipulated by that gizmo;
+
+Improvements:
+	-added toggle button which can be used to turn playmode GUI hints on/off. This toggle button resides in
+	the Runtime Editor Application mono Inspector;
+	-added ability to toggle camera scrolling on/off;
+	-by default all object layers are now selectable;
+
+// V 1.1
+New features:
+	-layer selection masks (can be configured from the 'EditorObjectSelection' inspector);
+	-added 'OnGizmoDragStart', 'OnGizmoDragUpdate' and 'OnGizmoDragEnd' events to the 'Gizmo' class (documentation chapter 6.1);
+	
+Improvements:
+	-Unity style camera movement using the WASD and QE keys (camera speed can be controlled from the 'EditorCamera' inspector);
+
+Bug fixes:
+	-fixed bug which was causing gizmos to render incorrectly for different viewport offset/size configurations;
+	-fixed bug which was causing objects to get deselected when a UI element was clicked;
+
+Removed:
+	-Bootstrap scene. Prefabs should be used instead for a much cleaner and comfortable solution;
+
+// V 1.0.7
+New features:
+	-camera focus on object selection;
+	-camera orbit around focus point;
+	-invert camera pan axes;
+	-added possibility to disable the object selection mechanism;
+	-it is now possible to customize the object selection mechanism;
+	-3 selection modes are now available;
+	-added Bootstrap scene;
+
+Bug fixes:
+	-the system now performs any necessary cleanup and performs any needed actions when
+	 a new scene is loaded at runtime (e.g. clear object selection, disable gizmos etc);
+	-fixed vertex snapping bug which occured when trying to snap a parent object to one of
+	 its children.
+
+// V 1.0.1
+New features:
+	-object selection masks;
+	-added support for mesh colliders;
+	-the 'ObjectColliderAttachmentSettings' class now contains 3 new properties which allow
+	 you to specify what types of objects should be ignored during the collider attachment
+	 process;
+	-added support for camera smooth zoom and smooth pan.
+
+Bug fixes:
+	-fixed bug which was happening in Unity 5.3.1. This was related to calling 'DontDestroyOnLoad' from
+	 the editor. For some reason, in Unity 5.3.1, this makes your objects dissappear from the hierarchy
+	 view. The fix involved calling this function at runtime where it was necessary.
+
+// V 1.0 - First release

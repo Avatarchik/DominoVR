@@ -18,7 +18,10 @@ public class PrefabItem : MonoBehaviour
     void OnClick()
     {
         Debug.Log("On Click");
-        GameManager.instance.SetPickedPrefab();
+        if (Prefab != null)
+        {
+            GameManager.instance.SetPickedPrefab(Prefab);
+        }
     }
 	
 	// Update is called once per frame

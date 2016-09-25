@@ -17,7 +17,7 @@ public class PrefabItem : MonoBehaviour
 
     void OnClick()
     {
-        Debug.Log("On Click");
+//        Debug.Log("On Click");
         if (Prefab != null)
         {
             GameManager.instance.SetPickedPrefab(Prefab);

@@ -24,10 +24,19 @@ namespace RTEditor
             // Loop through all selected objects and create the object selection boxes
             foreach (GameObject selectedObject in selectedObjects)
             {
+                List<GameObject> mListObjects = new List<GameObject>();
+
                 // Retrieve the object's model space box and if it is valid, create a
                 // new selection box and store it in the output list.
-                Bounds modelSpaceBox = selectedObject.GetModelSpaceAABB();
-                if (modelSpaceBox.IsValid()) objectSelectionBoxes.Add(new ObjectSelectionBox(modelSpaceBox, selectedObject.transform.localToWorldMatrix));
+                if (selectedObject != null)
+                {
+                    Bounds modelSpaceBox = selectedObject.GetModelSpaceAABB();
+                    if (modelSpaceBox.IsValid())
+                        objectSelectionBoxes.Add(new ObjectSelectionBox(modelSpaceBox,
+                            selectedObject.transform.localToWorldMatrix));
+
+                    mListObjects.Add(selectedObject);
+                }
             }
 
             return objectSelectionBoxes;

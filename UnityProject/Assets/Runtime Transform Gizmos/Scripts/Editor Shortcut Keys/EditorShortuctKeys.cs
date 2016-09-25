@@ -168,6 +168,27 @@ namespace RTEditor
             // object selection shape. Otherwise, multiple deselection will be disabled.
             if (InputHelper.IsAnyShiftKeyPressed()) objectSelection.MultiDeselect = true;
             else objectSelection.MultiDeselect = false;
+
+            //yolo - 29/9 : handle duplicate selected objects 
+            if (Input.GetKeyDown(KeyCode.D) && InputHelper.IsAnyCtrlOrCommandKeyPressed())
+            {
+                foreach (var selectedObject in objectSelection.SelectedGameObjects)
+                {
+                    GameObject clone = Instantiate(selectedObject);
+                    clone.transform.SetParent(selectedObject.transform.parent);
+                }
+            }
+            //End yolo
+
+            //yolo - 29/9 : handle delete selected objects
+            if (Input.GetKeyDown(KeyCode.Delete))
+            {
+                foreach (var selectedObject in objectSelection.SelectedGameObjects)
+                {
+                    Destroy(selectedObject);
+                }
+            }
+            //end yolo
         }
 
         /// <summary>
